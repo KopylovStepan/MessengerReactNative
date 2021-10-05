@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
+  VirtualizedList,
   StyleSheet,
   Text,
   useColorScheme,
@@ -22,6 +23,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import GridList from './components/GalleryList';
+import MessengerButton from './components/ui-kit/buttons/MessengerButton/MessengerButton';
 
 const dataPhoto = [
   require('./assets/img/Photo1.jpg'),
@@ -67,9 +69,7 @@ const App = () => {
                 <Text style={styles.socialPanel__itemCount}>1,589</Text>
                 <Text style={styles.socialPanel__itemInfo}>Following</Text>
               </View>
-              <TouchableOpacity style={styles.socialPanel__button}>
-                <Text style={styles.socialPanel__buttonTxt}>Подробнее</Text>
-              </TouchableOpacity>
+              <MessengerButton text={'Подробнее'} />
             </View>
             <View style={styles.gallery}>
               <View style={styles.gallery__info}>
@@ -81,9 +81,8 @@ const App = () => {
           </View>
         </ScrollView>
       </View>
-      {/* <View style={styles.footer}>
-        
-      </View> */}
+
+      <View style={styles.footer}></View>
     </SafeAreaView>
   );
 };
@@ -112,6 +111,8 @@ const styles = StyleSheet.create({
   },
   info__avatar: {
     borderRadius: 95 / 2,
+    height: 95,
+    width: 95,
   },
   info__name: {
     marginTop: 17,
@@ -163,21 +164,6 @@ const styles = StyleSheet.create({
     fontFamily: 'HKGrotesk-SemiBold',
     fontSize: 14,
     lineHeight: 18,
-    color: '#FFFFFF',
-  },
-  socialPanel__button: {
-    width: 133,
-    height: 36,
-    borderWidth: 1,
-    borderColor: '#3B2D5F',
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  socialPanel__buttonTxt: {
-    fontFamily: 'HKGrotesk-Bold',
-    fontSize: 14,
-    height: 24,
     color: '#FFFFFF',
   },
   gallery: {
