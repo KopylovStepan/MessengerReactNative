@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   Modal,
-  Dimensions,
   TouchableOpacity,
   StyleSheet,
   View,
   Text,
+  StatusBar,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -14,7 +14,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import TextHeadline from '../../ui-kit/text/TextHeadline';
 
 const ProfileMoreDetails = ({active, setActive}) => {
-  console.log(active);
   const close = () => {
     setActive(false);
   };
@@ -25,6 +24,7 @@ const ProfileMoreDetails = ({active, setActive}) => {
         transparent={true}
         visible={active}
         onRequestClose={close}>
+        <StatusBar backgroundColor="rgba(17, 13, 28, 1)" />
         <View
           style={{
             flex: 1,

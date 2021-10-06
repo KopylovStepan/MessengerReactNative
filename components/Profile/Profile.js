@@ -1,24 +1,39 @@
 import React from 'react';
 import {useState} from 'react';
-import {ScrollView, StyleSheet, Text, View, Image} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MessengerButton from './../../components/ui-kit/buttons/MessengerButton/MessengerButton';
 import ProfileGallery from './ProfileGallery/ProfileGallery';
 import ProfileMoreDetails from './ProfileMoreDetails/ProfileMoreDetails';
+import ProfileMenu from './ProfileMenu/ProfileMenu';
 
 const Profile = () => {
-  const [modalActive, setModalActive] = useState(false);
-  const showProfileMoreDetails = () => {
-    setModalActive(true);
+  const [modalProfileDetails, setModalProfileDetails] = useState(false);
+  const [modalProfileMenu, setModalProfileMenu] = useState(false);
+  const showProfileMenu = () => {
+    setModalProfileMenu(true);
   };
+  const showProfileMoreDetails = () => {
+    setModalProfileDetails(true);
+  };
+
   return (
     <>
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.head}>
             <AntDesign name="arrowleft" size={25} color="#FFFFFF" />
-            <Entypo name="dots-three-horizontal" size={25} color="#FFFFFF" />
+            <TouchableOpacity onPress={showProfileMenu}>
+              <Entypo name="dots-three-horizontal" size={25} color="#FFFFFF" />
+            </TouchableOpacity>
           </View>
           <View style={styles.info}>
             <Image
@@ -49,7 +64,11 @@ const Profile = () => {
       <View style={styles.footer}>
         <View style={styles.footer__indicator}></View>
       </View>
-      <ProfileMoreDetails active={modalActive} setActive={setModalActive} />
+      <ProfileMoreDetails
+        active={modalProfileDetails}
+        setActive={setModalProfileDetails}
+      />
+      <ProfileMenu active={modalProfileMenu} setActive={setModalProfileMenu} />
     </>
   );
 };
@@ -106,7 +125,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   socialPanel: {
-    marginTop: 24,
     paddingBottom: 24,
     flexDirection: 'row',
     justifyContent: 'space-between',

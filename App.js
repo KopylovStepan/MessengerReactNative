@@ -4,12 +4,14 @@ import Profile from './components/Profile/Profile';
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <>
       <StatusBar backgroundColor="#2B2146" />
-      <View style={styles.wrapper}>
-        <Profile />
-      </View>
-    </SafeAreaView>
+      <SafeAreaView style={{flex: 1}}>
+        <View style={styles.wrapper}>
+          <Profile />
+        </View>
+      </SafeAreaView>
+    </>
   );
 };
 
