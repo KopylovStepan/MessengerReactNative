@@ -1,11 +1,17 @@
 import React from 'react';
+import {useState} from 'react';
 import {ScrollView, StyleSheet, Text, View, Image} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MessengerButton from './../../components/ui-kit/buttons/MessengerButton/MessengerButton';
 import ProfileGallery from './ProfileGallery/ProfileGallery';
+import ProfileMoreDetails from './ProfileMoreDetails/ProfileMoreDetails';
 
 const Profile = () => {
+  const [modalActive, setModalActive] = useState(false);
+  const showProfileMoreDetails = () => {
+    setModalActive(true);
+  };
   return (
     <>
       <ScrollView>
@@ -35,7 +41,7 @@ const Profile = () => {
               <Text style={styles.socialPanel__itemCount}>1,589</Text>
               <Text style={styles.socialPanel__itemInfo}>Following</Text>
             </View>
-            <MessengerButton text={'Подробнее'} />
+            <MessengerButton show={showProfileMoreDetails} text={'Подробнее'} />
           </View>
           <ProfileGallery />
         </View>
@@ -43,6 +49,7 @@ const Profile = () => {
       <View style={styles.footer}>
         <View style={styles.footer__indicator}></View>
       </View>
+      <ProfileMoreDetails active={modalActive} setActive={setModalActive} />
     </>
   );
 };

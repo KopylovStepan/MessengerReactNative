@@ -1,19 +1,19 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 
-const TextMenu = ({text}) => {
+const TextHeadline = ({text}) => {
   return (
     <>
-      <Text style={styles.textMenu}>{text}</Text>
+      <Text style={styles.textHeadline}>{text}</Text>
     </>
   );
 };
 const styles = StyleSheet.create({
-  textMenu: {
+  textHeadline: {
     lineHeight: 16,
     color: '#FFFFFF',
     fontFamily: 'HKGrotesk-Bold',
     fontSize: 16,
   },
 });
-export default TextMenu;
+export default TextHeadline;

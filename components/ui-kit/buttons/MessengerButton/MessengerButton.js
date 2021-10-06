@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-const MessengerButton = ({text}) => {
+const MessengerButton = ({text, show}) => {
   return (
     <>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={show} style={styles.button}>
         <Text style={styles.buttonTxt}>{text}</Text>
       </TouchableOpacity>
     </>
