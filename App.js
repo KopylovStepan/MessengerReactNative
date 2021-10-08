@@ -1,12 +1,14 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
-import Profile from './components/Profile/Profile';
+import {SafeAreaView, StatusBar, View} from 'react-native';
+import styles from './AppStyle';
+import Profile from './src/screens/Profile/index';
+import colors from './assets/colors';
 
 const App = () => {
   return (
     <>
-      <StatusBar backgroundColor="#2B2146" />
-      <SafeAreaView style={{flex: 1}}>
+      <StatusBar backgroundColor={colors.ultramarineBlue} />
+      <SafeAreaView style={styles.safeAreaView}>
         <View style={styles.wrapper}>
           <Profile />
         </View>
@@ -14,12 +16,5 @@ const App = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: '#2B2146',
-    flex: 1,
-  },
-});
 
 export default App;
