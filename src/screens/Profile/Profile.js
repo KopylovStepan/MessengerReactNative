@@ -8,7 +8,7 @@ import MessengerButton from './../../components/ui-kit/buttons/MessengerButton/i
 import ProfileGallery from './../../components/ProfileGallery/index';
 import ProfileMoreDetails from './../../components/ProfileMoreDetails/index';
 import ProfileMenu from './../../components/ProfileMenu/index';
-import colors from './../../../assets/colors';
+import colors from '../../constants/colors';
 
 const Profile = () => {
   const [modalProfileDetails, setModalProfileDetails] = useState(false);

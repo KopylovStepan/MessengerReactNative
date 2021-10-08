@@ -6,7 +6,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MessengerTextHeadline from './../ui-kit/text/MessengerTextHeadline/index';
-import colors from '../../../assets/colors';
+import colors from '../../constants/colors';
 
 const ProfileMoreDetails = ({active, setActive}) => {
   const close = () => {

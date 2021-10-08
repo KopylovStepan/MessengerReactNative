@@ -4,7 +4,7 @@ import styles from './ProfileMenuStyle';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MessengerTextHeadline from './../ui-kit/text/MessengerTextHeadline/index';
-import colors from '../../../assets/colors';
+import colors from '../../constants/colors';
 
 const ProfileMenu = ({active, setActive}) => {
   const close = () => {
