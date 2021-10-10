@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
 
   post__slider: {
-    height: 180,
+    height: 208,
     width: 343,
   },
   post__img: {
@@ -52,7 +52,18 @@ const styles = StyleSheet.create({
     width: 343,
     borderRadius: 18,
   },
-
+  post__wrapDots: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+  },
+  post__dotActive: {
+    margin: 3,
+    color: colors.lemonYellow,
+  },
+  post__dot: {
+    margin: 3,
+    color: colors.pearlPurple,
+  },
   post__footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

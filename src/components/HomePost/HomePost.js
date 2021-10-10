@@ -9,8 +9,18 @@ import colors from '../../constants/colors';
 import styles from './HomePostStyle';
 
 const HomePost = ({item}) => {
-  // const [imgActive, setImgActive] = useState(0);
-  // const onChange = nativeEvent => {};
+  console.log(item);
+  const [imgActive, setImgActive] = useState(0);
+  const onChange = nativeEvent => {
+    if (nativeEvent) {
+      const slide = Math.ceil(
+        nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
+      );
+      if (slide != imgActive) {
+        setImgActive(slide);
+      }
+    }
+  };
   return (
     <View style={styles.post}>
       <View style={styles.post__header}>
@@ -47,23 +57,40 @@ const HomePost = ({item}) => {
                 <Image key={index} style={styles.post__img} source={e} />
               ))}
             </ScrollView>
+            <View style={styles.post__wrapDots}>
+              {item.images.map((e, index) => (
+                <Text
+                  key={index}
+                  style={
+                    imgActive == index
+                      ? styles.post__dotActive
+                      : styles.post__dot
+                  }>
+                  ●
+                </Text>
+              ))}
+            </View>
           </View>
         ) : null}
       </View>
       <View style={styles.post__footer}>
         <View style={styles.post__info}>
-          <View style={styles.post__infoItem}>
-            <AntDesign name="like2" size={25} color={colors.white} />
-            <Text style={styles.post__infoText}>{item.likesAmount}</Text>
-          </View>
-          <View style={styles.post__infoItem}>
-            <Ionicons
-              name="ios-chatbubble-ellipses-outline"
-              size={25}
-              color={colors.white}
-            />
-            <Text style={styles.post__infoText}>{item.commentsAmount}</Text>
-          </View>
+          {item.likesAmount ? (
+            <View style={styles.post__infoItem}>
+              <AntDesign name="like2" size={25} color={colors.white} />
+              <Text style={styles.post__infoText}>{item.likesAmount}</Text>
+            </View>
+          ) : null}
+          {item.commentsAmount ? (
+            <View style={styles.post__infoItem}>
+              <Ionicons
+                name="ios-chatbubble-ellipses-outline"
+                size={25}
+                color={colors.white}
+              />
+              <Text style={styles.post__infoText}>{item.commentsAmount}</Text>
+            </View>
+          ) : null}
         </View>
         <Feather name="bookmark" size={25} color={colors.white} />
       </View>

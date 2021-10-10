@@ -66,7 +66,7 @@ const postData = [
 
 const Home = () => {
   return (
-    <>
+    <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.header__menu}>
           <Feather name="menu" size={25} color={colors.white} />
@@ -84,11 +84,10 @@ const Home = () => {
       <FlatList
         style={styles.posts}
         data={postData}
-        renderItem={HomePost}
+        renderItem={object => <HomePost item={object.item} />}
         keyExtractor={item => item.id}
       />
-      <FooterIndicator />
-    </>
+    </View>
   );
 };
 

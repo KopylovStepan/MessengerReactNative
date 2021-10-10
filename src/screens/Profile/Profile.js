@@ -61,7 +61,6 @@ const Profile = () => {
           <ProfileGallery />
         </View>
       </ScrollView>
-      <FooterIndicator />
       <ProfileMoreDetails
         active={modalProfileDetails}
         setActive={setModalProfileDetails}
