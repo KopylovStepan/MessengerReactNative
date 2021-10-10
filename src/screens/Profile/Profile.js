@@ -8,6 +8,7 @@ import MessengerButton from './../../components/ui-kit/buttons/MessengerButton/i
 import ProfileGallery from './../../components/ProfileGallery/index';
 import ProfileMoreDetails from './../../components/ProfileMoreDetails/index';
 import ProfileMenu from './../../components/ProfileMenu/index';
+import FooterIndicator from '../../components/FooterIndicator/index';
 import colors from '../../constants/colors';
 
 const Profile = () => {
@@ -60,9 +61,7 @@ const Profile = () => {
           <ProfileGallery />
         </View>
       </ScrollView>
-      <View style={styles.footer}>
-        <View style={styles.footer__indicator}></View>
-      </View>
+      <FooterIndicator />
       <ProfileMoreDetails
         active={modalProfileDetails}
         setActive={setModalProfileDetails}
