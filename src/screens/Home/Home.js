@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import FooterIndicator from '../../components/FooterIndicator/index';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fontisto from 'react-native-vector-icons/Fontisto';

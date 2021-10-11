@@ -1,15 +1,22 @@
 import React from 'react';
 import {useState} from 'react';
-import {ScrollView, Text, View, Image, TouchableOpacity} from 'react-native';
+import {View, Image, FlatList} from 'react-native';
 import styles from './ProfileStyle';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Entypo from 'react-native-vector-icons/Entypo';
-import MessengerButton from './../../components/ui-kit/buttons/MessengerButton/index';
-import ProfileGallery from './../../components/ProfileGallery/index';
+import ProfileHeader from './../../components/ProfileHeader/index';
 import ProfileMoreDetails from './../../components/ProfileMoreDetails/index';
 import ProfileMenu from './../../components/ProfileMenu/index';
-import FooterIndicator from '../../components/FooterIndicator/index';
-import colors from '../../constants/colors';
+
+const dataPhoto = [
+  require('./../../../assets/img/Photo1.jpg'),
+  require('./../../../assets/img/Photo2.jpg'),
+  require('./../../../assets/img/Photo3.jpg'),
+  require('./../../../assets/img/Photo4.jpg'),
+  require('./../../../assets/img/Photo5.jpg'),
+  require('./../../../assets/img/Photo6.jpg'),
+  require('./../../../assets/img/Photo7.jpg'),
+  require('./../../../assets/img/Photo8.jpg'),
+  require('./../../../assets/img/Photo9.jpg'),
+];
 
 const Profile = () => {
   const [modalProfileDetails, setModalProfileDetails] = useState(false);
@@ -23,44 +30,23 @@ const Profile = () => {
 
   return (
     <>
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.header}>
-            <AntDesign name="arrowleft" size={25} color={colors.white} />
-            <TouchableOpacity onPress={showProfileMenu}>
-              <Entypo
-                name="dots-three-horizontal"
-                size={25}
-                color={colors.white}
-              />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.info}>
-            <Image
-              style={styles.info__avatar}
-              source={require('./../../../assets/img/Avatar.png')}
+      <View style={styles.container}>
+        <FlatList
+          style={styles.photos}
+          numColumns={3}
+          ListHeaderComponent={
+            <ProfileHeader
+              showProfileMenu={showProfileMenu}
+              showProfileMoreDetails={showProfileMoreDetails}
             />
-            <Text style={styles.info__name}>Kat Williams</Text>
-            <Text style={styles.info__inst}>@Williams</Text>
-            <Text style={styles.info__location}>Россия, Санкт-Петербург</Text>
-            <Text style={styles.info__job}>
-              Место работы: Artist by Passion!
-            </Text>
-          </View>
-          <View style={styles.socialPanel}>
-            <View style={styles.socialPanel__item}>
-              <Text style={styles.socialPanel__amount}>2,467</Text>
-              <Text style={styles.socialPanel__info}>Followers</Text>
-            </View>
-            <View style={styles.socialPanel__item}>
-              <Text style={styles.socialPanel__amount}>1,589</Text>
-              <Text style={styles.socialPanel__info}>Following</Text>
-            </View>
-            <MessengerButton show={showProfileMoreDetails} text={'Подробнее'} />
-          </View>
-          <ProfileGallery />
-        </View>
-      </ScrollView>
+          }
+          data={dataPhoto}
+          renderItem={object => (
+            <Image key={object.id} style={styles.photo} source={object.item} />
+          )}
+          keyExtractor={item => item}
+        />
+      </View>
       <ProfileMoreDetails
         active={modalProfileDetails}
         setActive={setModalProfileDetails}
